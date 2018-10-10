@@ -1,4 +1,4 @@
-package it.unipr.iotlab.iot2018.cf.server.resources;
+package resources;
 
 import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.coap.CoAP.ResponseCode;

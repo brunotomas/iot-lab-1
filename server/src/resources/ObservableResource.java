@@ -1,4 +1,4 @@
-package it.unipr.iotlab.iot2018.cf.server.resources;
+package resources;
 
 import java.util.Random;
 import java.util.Timer;

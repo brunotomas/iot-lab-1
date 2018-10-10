@@ -1,8 +1,9 @@
-package it.unipr.iotlab.iot2018.cf.server;
+package server;
 
 import org.eclipse.californium.core.CoapServer;
-import it.unipr.iotlab.iot2018.cf.server.resources.HelloWorldResource;
-import it.unipr.iotlab.iot2018.cf.server.resources.ObservableResource;
+
+import resources.HelloWorldResource;
+import resources.ObservableResource;
 
 public class TutorialServer extends CoapServer {
 
