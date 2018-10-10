@@ -14,7 +14,7 @@ sensor = Adafruit_DHT.DHT11
 GPIO.setmode(GPIO.BOARD)
  
 # Define a GPIO conectada ao pino de dados do sensor
-pino_sensor = int((sys.argv[1])) 
+pino_sensor = int(sys.argv[1])
  
 # Informacoes iniciais
 print ("*** Lendo os valores de temperatura e umidade");
