@@ -20,7 +20,7 @@ public class TempLedResource extends CoapResource {
 		super(name);
 		gpio = GpioFactory.getInstance();
 		//remember to change GPIO pin properly
-		tempLed = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03, "TemperatureLED");
+		tempLed = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03, "Temperature LED");
 	}
 	
 	@Override
