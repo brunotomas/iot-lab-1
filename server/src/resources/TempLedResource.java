@@ -5,16 +5,33 @@ import org.eclipse.californium.core.coap.MediaTypeRegistry;
 import org.eclipse.californium.core.coap.CoAP.ResponseCode;
 import org.eclipse.californium.core.server.resources.CoapExchange;
 
+import com.pi4j.io.gpio.GpioController;
+import com.pi4j.io.gpio.GpioFactory;
+import com.pi4j.io.gpio.GpioPinDigitalOutput;
+import com.pi4j.io.gpio.RaspiPin;
+
+import utils.LedUtils;
+
 public class TempLedResource extends CoapResource {
+	final GpioController gpio;
+	final GpioPinDigitalOutput tempLed;
+	
 	public TempLedResource(String name) {
 		super(name);
+		gpio = GpioFactory.getInstance();
+		//remember to change GPIO pin properly
+		tempLed = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03, "TemperatureLED");
 	}
 	
 	@Override
 	public void handleGET(CoapExchange exchange) {
-	exchange.respond(ResponseCode.CONTENT,
-	"Status do led de temperatura", //replace string by temperature led status (ON/OFF/BLINK) 
-	MediaTypeRegistry.TEXT_PLAIN);
+	try {
+		exchange.respond(ResponseCode.CONTENT,
+		LedUtils.getLedStatus(tempLed),
+		MediaTypeRegistry.TEXT_PLAIN);
+	} catch (InterruptedException e) {
+		e.printStackTrace();
+	}
 
 	}
 }
