@@ -2,7 +2,7 @@ package python.from.java;
 
 import java.io.*;
 import java.util.Scanner;                                                       
-class PythonFromJava {
+public class PythonFromJava {
 	String file;
 	String [] params;
 
