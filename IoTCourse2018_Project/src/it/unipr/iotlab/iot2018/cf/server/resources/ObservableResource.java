@@ -16,21 +16,24 @@ public class ObservableResource extends CoapResource {
 		Timer timer = new Timer(); timer.schedule(new
 				UpdateTask(this), 0, 1000);
 	}
-	
+
 	public void handleGET(CoapExchange exchange) {
 		exchange.respond(ResponseCode.CONTENT,
 
-		mValue+"",
-		MediaTypeRegistry.TEXT_PLAIN); }
-	
+				mValue+"",
+				MediaTypeRegistry.TEXT_PLAIN); }
+
 	private class UpdateTask extends TimerTask {
-		private CoapResource mCoapRes; public
-		UpdateTask(CoapResource coapRes) {
-		mCoapRes = coapRes;
-		} @Override public void run() { mValue
-		= new Random().nextInt(20);
-		mCoapRes.changed();
+		private CoapResource mCoapRes; 
+		
+		public UpdateTask(CoapResource coapRes) {
+			mCoapRes = coapRes;
+		} 
+		
+		@Override 
+		public void run() { 
+			mValue = new Random().nextInt(20);
+			mCoapRes.changed();
 		}
 	}
-
 }

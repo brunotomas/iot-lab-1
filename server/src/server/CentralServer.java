@@ -17,7 +17,7 @@ public class CentralServer extends CoapServer {
 		tempHumidityResource.setObservable(true);
 		tempHumidityResource.getAttributes().setObservable();
 		
-		TempLedResource tempLedResource = new TempLedResource("temp-led");
+		/*TempLedResource tempLedResource = new TempLedResource("temp-led");
 		centralServer.add(tempLedResource);
 		tempLedResource.setObservable(true);
 		tempLedResource.getAttributes().setObservable();
@@ -25,8 +25,9 @@ public class CentralServer extends CoapServer {
 		HumidityLedResource humidityLedResource = new HumidityLedResource("humidity-led");
 		centralServer.add(humidityLedResource);
 		humidityLedResource.setObservable(true);
-		humidityLedResource.getAttributes().setObservable();
+		humidityLedResource.getAttributes().setObservable();*/
 		
+		centralServer.start();
 	}
 
 }
