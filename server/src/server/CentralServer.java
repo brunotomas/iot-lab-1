@@ -2,21 +2,21 @@ package server;
 
 import org.eclipse.californium.core.CoapServer;
 
-import resources.TempHumidityResource;
+import resources.HumidityTemperatureResource;
 
 
 public class CentralServer extends CoapServer {
 
 	public static void main(String[] args) {
 		
-		CentralServer centralServer = new CentralServer();
+		CentralServer centralServer = new CentralServer(); // create instance of serve
 		
-		TempHumidityResource tempHumidityResource = new TempHumidityResource("temp-humidity");
-		centralServer.add(tempHumidityResource);
-		tempHumidityResource.setObservable(true);
-		tempHumidityResource.getAttributes().setObservable();
+		HumidityTemperatureResource tempHumidityResource = new HumidityTemperatureResource("humidity-temp"); // create instance of resource
+		centralServer.add(tempHumidityResource); // add the resource to serve
+		tempHumidityResource.setObservable(true); // enable observing
+		tempHumidityResource.getAttributes().setObservable(); // mark observable in the Link-Format
 				
-		centralServer.start();
+		centralServer.start(); // start the server
 	}
 
 }
