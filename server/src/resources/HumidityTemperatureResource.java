@@ -57,12 +57,12 @@ public class HumidityTemperatureResource extends CoapResource {
 		double minValue = Double.parseDouble(exchange.getRequestText().split(";")[1]);
 		double maxValue = Double.parseDouble(exchange.getRequestText().split(";")[2]);
 
-		if (sensorType.equals("temperatura")) {
+		if (sensorType.equals("temperature")) {
 			minTemperature = minValue;
 			maxTemperature = maxValue;
 		}
 		
-		if(sensorType.equals("umidade")) {
+		if(sensorType.equals("humidity")) {
 			minHumidity = minValue;
 			maxHumidity = maxValue;
 		}
@@ -119,7 +119,6 @@ public class HumidityTemperatureResource extends CoapResource {
 			
 			// condition to turn off both leds
 			else {
-				System.out.println("Apagados");
 				humidityLed.setState(false);
 				temperatureLed.setState(false);
 				isBlinking = false;
@@ -129,7 +128,8 @@ public class HumidityTemperatureResource extends CoapResource {
 			
 			// check whether there was a change in temperature, humidity or led states
 			if(!humidityTemperatureLedStates.equals(newHumidityTemperatureLedStates)){
-				humidityTemperatureLedStates = newHumidityTemperatureLedStates;				
+				humidityTemperatureLedStates = newHumidityTemperatureLedStates;	
+				System.out.println(humidityTemperatureLedStates);
 				mCoapRes.changed();
 			}
 		}
