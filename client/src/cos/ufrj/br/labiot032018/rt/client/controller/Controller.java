@@ -38,7 +38,7 @@ public class Controller {
 	}
 	
 	public void observe(String serverIp) {
-		CoapClient clientTempHumidity = new CoapClient("coap://" + serverIp + ":5683/temp-humidity");
+		CoapClient clientTempHumidity = new CoapClient("coap://" + serverIp + ":5683/humidity-temperature");
 		clientTempHumidity.observe(
 				new CoapHandler() {
 					@Override public void onLoad(CoapResponse response) {
@@ -75,14 +75,14 @@ public class Controller {
 	}
 	
 	public void sendTemperatureRange(String serverIp) {
-		CoapClient clientTempHumidity = new CoapClient("coap://" + serverIp + ":5683/temp-humidity");
+		CoapClient clientTempHumidity = new CoapClient("coap://" + serverIp + ":5683/humidity-temperature");
 		String payload = "temperature;" + view.getMinTemperatureTextField().getText() + ";" + view.getMaxTemperatureTextField().getText();
 		clientTempHumidity.post(payload, MediaTypeRegistry.TEXT_PLAIN);
 
 	}
 	
 	public void sendHumidityRange(String serverIp) {
-		CoapClient clientTempHumidity = new CoapClient("coap://" + serverIp + ":5683/temp-humidity");
+		CoapClient clientTempHumidity = new CoapClient("coap://" + serverIp + ":5683/humidity-temperature");
 		String payload = "humidity;" + view.getMinHumidityTextField().getText() + ";" + view.getMaxHumidityTextField().getText();
 		clientTempHumidity.post(payload, MediaTypeRegistry.TEXT_PLAIN);
 
