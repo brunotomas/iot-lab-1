@@ -5,6 +5,7 @@ import cos.ufrj.br.labiot032018.rt.client.model.HumiditySensor;
 import cos.ufrj.br.labiot032018.rt.client.model.TemperatureSensor;
 import cos.ufrj.br.labiot032018.rt.client.view.View;
 
+
 public class App {
 	public static void main(String[] args) {
 		HumiditySensor humiditySensor = new HumiditySensor(0, 0, 100);
